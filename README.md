@@ -8,10 +8,6 @@
 
 ##### Outras mecânicas como Sistema de loja serão implementadas conforme eu for aprendendo a programá-las.
 
-## Layout do Projeto
-
-![Jet-Fire]()
-
 ## Tecnologias Utilizadas
 
 - ##### Unity3D
