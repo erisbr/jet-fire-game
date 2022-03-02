@@ -30,7 +30,7 @@ public class PlatformGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < point.transform.position.x)
+        if(transform.position.x < point.transform.position.x && GameController.current.playerIsAlive)
         {
             
             float distance = Random.Range(minDistance, maxDistance);

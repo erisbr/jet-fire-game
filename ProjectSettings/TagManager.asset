@@ -9,6 +9,7 @@ TagManager:
   - bala
   - Coin
   - Life
+  - GameOver
   layers:
   - Default
   - TransparentFX

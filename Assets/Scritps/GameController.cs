@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController current;
 
     private int score;
-    public float scorePerSecond;
+    private float scorePerSecond = 3;
     private float scoreUpdate;
 
     public int coins;
@@ -17,6 +18,9 @@ public class GameController : MonoBehaviour
 
     private int life = 3;
     public Text lifeText;
+
+    public bool playerIsAlive = true;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +31,21 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreUpdate += scorePerSecond * Time.deltaTime;
-        score = (int)scoreUpdate;
+        if (playerIsAlive)
+        {
+            scoreUpdate += scorePerSecond * Time.deltaTime;
+            score = (int)scoreUpdate;
+        }
 
         scoreText.text = score.ToString();
 
         lifeText.text = "x " + life.ToString();
+
+        if(life <=0)
+        {
+            playerIsAlive = false;
+        }
+
     }
 
 
@@ -49,5 +62,15 @@ public class GameController : MonoBehaviour
     public void RemoveLife(int value)
     {
         life -= value;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
 }

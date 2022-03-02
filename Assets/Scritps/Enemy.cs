@@ -40,9 +40,11 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "bala")
         {
+            GetComponent<CircleCollider2D>().enabled = false;
             animador.SetTrigger("Destroy");
             GameController.current.AddScore(10);
             Destroy(gameObject, 0.5f);
+        
         }
     }
 

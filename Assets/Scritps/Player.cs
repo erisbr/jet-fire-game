@@ -25,11 +25,14 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-         //movimentação do personagem
-        rig.velocity = new Vector2(speed * Time.deltaTime, rig.velocity.y);
+        //movimentação do personagem
+        if (GameController.current.playerIsAlive)
+        {
+            rig.velocity = new Vector2(speed * Time.deltaTime, rig.velocity.y);
+        }
 
         //pulo do personagem
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded && GameController.current.playerIsAlive)
         {
             rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
@@ -42,9 +45,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         //ataque
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && GameController.current.playerIsAlive)
         {
             Instantiate(bullet, point.transform.position, point.transform.rotation);
+        }
+
+        //game over
+        if(GameController.current.playerIsAlive == false)
+        {
+            GameController.current.gameOverPanel.SetActive(true);
         }
     }
    
@@ -56,6 +65,11 @@ public class Player : MonoBehaviour
             isGrounded = true;
             animador.SetBool("isJumping", false);
         }
+
+        if(collision.gameObject.tag == "GameOver")
+        {
+            GameController.current.playerIsAlive = false;
+        }
     }
 
     //adicionando e removendo vida em caso de colisão com inimigos e/ou power ups
@@ -66,11 +80,12 @@ public class Player : MonoBehaviour
             GameController.current.AddLife(1);
         }
 
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag == "Enemy" && GameController.current.playerIsAlive)
         {
             GameController.current.RemoveLife(1);
 
         }
+
     }
 
     
