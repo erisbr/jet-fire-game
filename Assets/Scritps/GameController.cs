@@ -7,12 +7,16 @@ public class GameController : MonoBehaviour
 {
     public static GameController current;
 
-    public int score;
+    private int score;
     public float scorePerSecond;
     private float scoreUpdate;
+
     public int coins;
     public Text scoreText;
     public Text coinText;
+
+    private int life = 3;
+    public Text lifeText;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +31,23 @@ public class GameController : MonoBehaviour
         score = (int)scoreUpdate;
 
         scoreText.text = score.ToString();
+
+        lifeText.text = "x " + life.ToString();
     }
 
 
     public void AddScore(int value)
     {
         scoreUpdate += value;
+    }
+
+    public void AddLife(int value)
+    {
+        life += value;
+    }
+
+    public void RemoveLife(int value)
+    {
+        life -= value;
     }
 }

@@ -57,4 +57,27 @@ public class Player : MonoBehaviour
             animador.SetBool("isJumping", false);
         }
     }
+
+    //adicionando e removendo vida em caso de colisão com inimigos e/ou power ups
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Life")
+        {
+            GameController.current.AddLife(1);
+        }
+
+        if(collision.gameObject.tag == "Enemy")
+        {
+            GameController.current.RemoveLife(1);
+
+        }
+    }
+
+    
+
+    
+   
+
+
+
 }

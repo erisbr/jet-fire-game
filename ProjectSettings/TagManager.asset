@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - bala
   - Coin
+  - Life
   layers:
   - Default
   - TransparentFX
