@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06f9ec55e20e4fc4887c4b28483402e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
+  speed: 380
   jumpForce: 12
   bullet: {fileID: 182485929254822810, guid: 6abfee2e099ae2344b89f1e0f0fdcce6, type: 3}
   point: {fileID: 558696870}

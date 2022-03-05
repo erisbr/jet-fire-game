@@ -54,7 +54,9 @@ public class Player : MonoBehaviour
         if(GameController.current.playerIsAlive == false)
         {
             GameController.current.gameOverPanel.SetActive(true);
+            speed = 0;
         }
+
     }
    
 
