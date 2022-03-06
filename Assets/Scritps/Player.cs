@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //declaração de variáveis
-    public float speed;
-    public float jumpForce;
+    private float speed = 400;
+    private float jumpForce = 12;
     private bool isGrounded;
 
     private Rigidbody2D rig;
@@ -37,7 +37,6 @@ public class Player : MonoBehaviour
             rig.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
             animador.SetBool("isJumping", true);
-       
         }
 
     }   
@@ -55,6 +54,11 @@ public class Player : MonoBehaviour
         {
             GameController.current.gameOverPanel.SetActive(true);
             speed = 0;
+        }
+
+        if(GameController.current.score >= 1000)
+        {
+            speed = 510;
         }
 
     }
@@ -89,12 +93,5 @@ public class Player : MonoBehaviour
         }
 
     }
-
-    
-
-    
-   
-
-
 
 }
