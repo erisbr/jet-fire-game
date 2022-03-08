@@ -92,11 +92,13 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
-}
+
+    }
+
