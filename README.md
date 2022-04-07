@@ -17,5 +17,5 @@
 
 ##### Os Assets foram retirados da internet.
 
-##### Em breve o jogo estará disponível para download e teste no meu [Itch.io](https://erisbr.itch.io/)
+##### O jogo está disponível para download e teste no meu [Itch.io](https://erisbr.itch.io/)
 
