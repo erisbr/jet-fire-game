@@ -1549,8 +1549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: {fileID: 2117402862}
-  minDistance: 3.2
-  maxDistance: 6.5
+  minDistance: 3.7
+  maxDistance: 6.4
   platforms:
   - {fileID: 5981817676314686080, guid: b4d748c5deea46947bb10d6dcade9919, type: 3}
   - {fileID: 5925439939788245404, guid: 4b72247577e44b34282e36dadab6080e, type: 3}
